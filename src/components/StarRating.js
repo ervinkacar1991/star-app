@@ -17,7 +17,18 @@ const StarRating = () => {
   return (
     <div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
       {starsIds.map((id) => (
-        <img src={getImg(id)} width={60} height={60} />
+        <img
+          src={getImg(id)}
+          onMouseEnter={() => {
+            setHovered(id);
+            if (id < clicked) setClicked(0);
+          }}
+          onClick={() => setClicked(id)}
+          onMouseOut={() => setHovered(0)}
+          width={60}
+          height={60}
+          alt="Fill stars"
+        />
       ))}
     </div>
   );
